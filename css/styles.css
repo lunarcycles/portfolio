@@ -1,0 +1,417 @@
+* {
+    font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    background-color: rgb(14, 12, 41);
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: rgb(231, 153, 121);
+}
+
+a:hover {
+    color: rgb(241, 191, 171);
+}
+
+.nav {
+    background-image: linear-gradient(90deg, #25240e95, #25240e55, rgba(14, 12, 41, 0.2));
+    font-size: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 10%;
+    height: 100vh;
+    animation: slidein 4s linear;
+    animation-fill-mode: forwards;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.text {
+    position: absolute;
+    top: 200px;
+    left: 350px;
+    color: rgb(249, 106, 49);
+    font-size: 2rem;
+    opacity: 0;
+    animation: appear 1s linear;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    /* text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #Fff; */
+}
+
+.text a,
+.contact-area a {
+    color: white;
+    margin: 30px 0;
+    font-size: 5rem;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+i {
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.text a:hover {
+    color: rgb(239, 102, 48);
+}
+
+#linkedin,
+.proficiency-icon {
+    animation-delay: 2s;
+}
+
+#github {
+    animation-delay: 1s;
+}
+
+#codepen {
+    animation-delay: 1.5s;
+}
+
+.pattern {
+    height: 99vh;
+    width: 100%;
+    position: fixed;
+    z-index: -1;
+}
+
+.about .pattern {
+    height: 600vh;
+}
+
+.path {
+    fill: rgba(143, 127, 50, 0.304);
+    fill-opacity: 0;
+    font-size: 4rem;
+    stroke: rgb(145, 130, 57);
+    stroke-width: 1;
+    stroke-dasharray: 550;
+    stroke-dashoffset: 552;
+    animation: dash 1s linear, fill 1.5s linear;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+}
+
+.about .path,
+.portfolio .path {
+    animation: dash 1s linear reverse;
+}
+
+.contact .path {
+    animation: dash 2s alternate forwards;
+}
+
+@keyframes dash {
+    to {
+        stroke-dashoffset: 0;
+        stroke: rgba(122, 109, 42, 0.2);
+    }
+}
+
+@keyframes fill {
+    to {
+        fill-opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -800px;
+    }
+    20% {
+        margin-left: -800px;
+    }
+    35% {
+        margin-left: 0px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
+
+@keyframes floating {
+    from {
+        transform: translate(0, 0px);
+    }
+    65% {
+        transform: translate(0, 5px);
+    }
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+@keyframes appear-display {
+    to {
+        visibility: visible;
+    }
+}
+
+
+/* Portfolio */
+
+.portfolio {
+    display: flex;
+    justify-content: center;
+}
+
+.portfolio-main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    width: 80%;
+    visibility: hidden;
+    opacity: 0;
+    animation: appear-display 2s linear 1s forwards, appear 1s linear 1.5s forwards;
+}
+
+.portfolio-item-row {
+    height: 350px;
+    width: 90%;
+    margin: 5vh 0;
+    text-align: center;
+    position: relative;
+}
+
+.portfolio-item {
+    display: inline-block;
+    width: 25%;
+    height: 100%;
+    position: relative;
+    border-radius: 25px;
+    margin: 0 35px;
+}
+
+@media screen and (max-width: 990px) {
+    .portfolio-main-container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+    }
+    .portfolio-item-row {
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        padding: 10px;
+    }
+    .portfolio-item {
+        width: 200px;
+        height: 180px;
+        position: relative;
+        border-radius: 25px;
+        margin: 10px;
+    }
+    .text-overlay {
+        height: 180px;
+        width: 100%;
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        border-radius: 25px;
+        background-color: rgba(195, 202, 195, 0.5);
+        color: black;
+        font-size: 1rem;
+    }
+    .text-overlay:hover {
+        height: 180px;
+        opacity: 0.8;
+        font-size: 1rem;
+        color: black;
+    }
+}
+
+.portfolio-item img {
+    height: inherit;
+    width: 100%;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    border-radius: 25px;
+}
+
+.text-overlay {
+    height: 100%;
+    width: 100%;
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 25px;
+    background-color: rgba(195, 202, 195, 0.5);
+    color: black;
+}
+
+.text-overlay:hover {
+    opacity: 0.8;
+    color: black;
+    text-align: center;
+    padding: 30% 0;
+}
+
+.portfolio-item:hover img {
+    opacity: 0.5;
+}
+
+
+/* contact area */
+
+.contact-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px;
+}
+
+.icons-line {
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    font-size: 1.5rem;
+    color: #ECFAEC;
+}
+
+.icons-line i {
+    color: #FAFAFA;
+    font-size: 6rem;
+    margin: 100px 100px 100px 100px;
+}
+
+.icons-line .fa-envelope {
+    border-radius: 25px;
+    background-size: 2px;
+}
+
+.contact-area-item {
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.contact-area-icon {
+    background-color: #D2D8AB;
+    border-radius: 25px;
+    font-size: 3.5rem;
+}
+
+@media screen and (max-width: 860px) {
+    .contact-area {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 78vh;
+    }
+    .icons-line {
+        display: flex;
+        justify-content: space-around;
+        width: 70%;
+        font-size: 1.5rem;
+        color: #ECFAEC;
+    }
+    .icons-line i {
+        color: #FAFAFA;
+        font-size: 6rem;
+        margin: 100px 80px 100px 80px;
+    }
+    .contact-area-item {
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+    .contact-area-icon {
+        background-color: #D2D8AB;
+        border-radius: 25px;
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .contact-area {
+        height: 90vh;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .icons-line i {
+        color: #FAFAFA;
+        font-size: 4rem;
+        margin: 20px 40px 20px 40px;
+    }
+}
+
+
+/* About me */
+
+.skillsContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ECFAEC;
+}
+
+.about-me-container-backend,
+.about-me-container-frontend {
+    display: flex;
+    justify-content: center;
+}
+
+.proficiency-container {
+    text-align: center;
+    margin: 20vh 0;
+}
+
+.proficiency-icon {
+    font-size: 7rem;
+    color: #FAFAFA;
+    padding: 10px;
+}
